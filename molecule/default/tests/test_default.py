@@ -7,9 +7,24 @@ testinfra_hosts = testinfra.utils.ansible_runner.AnsibleRunner(
 ).get_hosts('all')
 
 
-def test_hosts_file(host):
-    f = host.file('/etc/hosts')
+def test_installed_packages(host):
+    lsof = host.package("lsof")
+    assert lsof.is_installed
 
-    assert f.exists
-    assert f.user == 'root'
-    assert f.group == 'root'
+    git = host.package("git")
+    assert git.is_installed
+
+    telnet = host.package("telnet")
+    assert telnet.is_installed
+
+    ntp = host.package("ntp")
+    assert ntp.is_installed
+
+    iftop = host.package("iftop")
+    assert iftop.is_installed
+
+    unzip = host.package("unzip")
+    assert unzip.is_installed
+
+    net_tools = host.package("net-tools")
+    assert net_tools.is_installed

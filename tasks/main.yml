@@ -1,2 +1,16 @@
 ---
 # tasks file for linux_base_config
+
+- name: ensuring packages are installed
+  yum:
+    name: "{{ packages }}"
+    state: present
+  vars:
+    packages:
+      - lsof
+      - git
+      - telnet
+      - ntp
+      - iftop
+      - unzip
+      - net-tools.x86_64
