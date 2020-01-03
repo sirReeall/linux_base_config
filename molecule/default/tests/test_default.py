@@ -28,3 +28,5 @@ def test_installed_packages(host):
 
     net_tools = host.package("net-tools")
     assert net_tools.is_installed
+
+    assert host.package("curl").is_installed

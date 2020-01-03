@@ -14,3 +14,4 @@
       - iftop
       - unzip
       - net-tools.x86_64
+      - curl
